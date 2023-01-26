@@ -1,0 +1,41 @@
+<%- include("partials/header") -%>
+    <h1>Home</h1>
+    <div>
+        <p>
+            <%= homeStartingContent %>
+        </p>
+    </div>
+    <div>
+        <h2>Posts</h2>
+        <ul>
+            <% for( let x=0; x < postItem.length; x++ ) { %>
+                <li>
+                    <div>
+                        <p>
+                            <%= postItem[x].title %>
+                        </p>
+                    </div>
+                </li>
+                <% } %>
+
+        </ul>
+    </div>
+    <div>
+        <h2>For Each</h2>
+
+        <hr>
+        <% postItem.forEach(element=> { %>
+            <h3>
+                <%= element.title%>
+            </h3>
+            <div>
+                <p>
+                    <%=element.post.substring(0, 100) + "..." %>
+                        <a href="/post/<%=element._id%>">Read More</a>
+                </p>
+                <input type="hidden" name="postId" value="<%= element._id%> ">
+            </div>
+            <% }) %>
+                <br>
+    </div>
+    <%- include("partials/footer") -%>

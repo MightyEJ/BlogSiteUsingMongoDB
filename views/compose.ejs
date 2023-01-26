@@ -1,0 +1,39 @@
+<%- include("partials/header") -%>
+    <h1>Compose</h1>
+    <div>
+        <form class="needs-validation" novalidate action="/compose" method="post">
+            <div class="form-group" has-validation>
+                <label for="txtTitle">Title</label>
+                <input type="text" class="form-control" name="txtTitle" id="txtTitle" placeholder="Title" required>
+            </div>
+            <div class="form-group" has-validation>
+                <label for="txtPost">Post</label>
+                <textarea rows="4" class="form-control" name="txtPost" placeholder="Your Story ..."
+                    aria-label="With textarea" required></textarea>
+            </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Publish</button>
+    </form>
+    </div>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+    <%- include("partials/footer") -%>
